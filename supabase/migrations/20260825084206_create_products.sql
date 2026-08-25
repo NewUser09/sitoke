@@ -7,6 +7,6 @@ CREATE TABLE products (
   stock INT,
   description TEXT,
   image_url TEXT,
-  created_at TIMESTAMPTZ,
-  updated_at TIMESTAMPTZ
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
 )
