@@ -1,8 +1,9 @@
 import Image from "next/image";
 import ProductCard from "../components/ProductCard";
-import { products } from "../data/products";
+import { getProducts } from "@/lib/services/getProduct";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const products = await getProducts();
   return (
     <main className="p-6">
       <h1 className="mb-6 text-2xl font-bold">
