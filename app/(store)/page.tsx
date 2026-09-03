@@ -9,7 +9,7 @@ export default function HomePage() {
         Katalog Produk
       </h1>
 
-      <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+      <div className="grid grid-cols-2 gap-4 md:grid-cols-5">
         {products.map((product) => (
           <ProductCard
             key={product.id}
