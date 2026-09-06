@@ -10,7 +10,7 @@ export default async function HomePage() {
         Katalog Produk
       </h1>
 
-      <div className="grid grid-cols-2 gap-4 md:grid-cols-5">
+      <div className="grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-6">
         {products.map((product) => (
           <ProductCard
             key={product.id}
