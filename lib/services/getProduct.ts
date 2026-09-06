@@ -9,6 +9,7 @@ export interface Product {
     stock: number;
     description: string;
     image_url: string;
+    slug: string;
     created_at: Date;
     updated_at: Date;
 }
@@ -16,6 +17,19 @@ export interface Product {
 export const getProducts = async (): Promise<Product[]> => {
     const { data, error } = await supabase.from("products").select("*");
 
+    if (error) {
+        throw error;
+    }
+
+    return data;
+}
+
+export const getProductBySlug = async (slug: string): Promise<Product> => {
+    const { data, error } = await supabase
+        .from("products")
+        .select("*")
+        .eq("slug", slug)
+        .single();
     if (error) {
         throw error;
     }
