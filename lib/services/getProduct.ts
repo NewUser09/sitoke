@@ -4,6 +4,10 @@ export interface Product {
     id: string;
     name: string;
     category_id: string;
+    categories?: {
+        id: string;
+        name: string;
+    }
     normal_price: number;
     special_price: number;
     stock: number;
@@ -27,7 +31,7 @@ export const getProducts = async (): Promise<Product[]> => {
 export const getProductBySlug = async (slug: string): Promise<Product> => {
     const { data, error } = await supabase
         .from("products")
-        .select("*")
+        .select("*, categories(*)")
         .eq("slug", slug)
         .single();
     if (error) {

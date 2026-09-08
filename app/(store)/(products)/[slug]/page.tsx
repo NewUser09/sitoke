@@ -1,5 +1,5 @@
 import { getProductBySlug } from "@/lib/services/getProduct";
-import BackButton from "@/app/components/BackButton";
+import BackButton from "@/app/components/ui/BackButton";
 
 export default async function ProductPage({ params }: { params: { slug: string } }) {
     const resolvedParams = await params;
@@ -34,7 +34,7 @@ export default async function ProductPage({ params }: { params: { slug: string }
                 </h1>
 
                 <p className="text-sm text-gray-500">
-                    Kategori ID: {product.category_id}
+                    {product.categories?.name}
                 </p>
 
                 <p className="text-blue-500 font-semibold md:text-lg"> 

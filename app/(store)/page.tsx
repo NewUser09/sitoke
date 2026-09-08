@@ -1,5 +1,5 @@
 import Image from "next/image";
-import ProductCard from "../components/ProductCard";
+import ProductCard from "../components/common/ProductCard";
 import { getProducts } from "@/lib/services/getProduct";
 
 export default async function HomePage() {
