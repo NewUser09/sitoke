@@ -9,9 +9,9 @@ export default function BackButton() {
     return (
         <button 
             onClick={() => router.back()}
-            className="flex items-center gap-2 text-blue-500 hover:text-blue-600 font-semibold transition-colors"
+            className="flex items-center gap-2 text-blue-400 hover:text-blue-600 font-semibold transition-colors md:text-lg"
         >
-            <ChevronLeft size={22}/>
+            <ChevronLeft className="size-5 md:size-6"/>
             Kembali
         </button>
     );

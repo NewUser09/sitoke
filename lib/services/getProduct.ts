@@ -19,7 +19,7 @@ export interface Product {
 }
 
 export const getProducts = async (): Promise<Product[]> => {
-    const { data, error } = await supabase.from("products").select("*");
+    const { data, error } = await supabase.from("products").select("*, categories(*)");
 
     if (error) {
         throw error;
@@ -28,12 +28,12 @@ export const getProducts = async (): Promise<Product[]> => {
     return data;
 }
 
-export const getProductBySlug = async (slug: string): Promise<Product> => {
+export const getProductBySlug = async (slug: string): Promise<Product | null> => {
     const { data, error } = await supabase
         .from("products")
         .select("*, categories(*)")
         .eq("slug", slug)
-        .single();
+        .maybeSingle();
     if (error) {
         throw error;
     }
