@@ -13,16 +13,16 @@ export default function ProductCard({ product }: {product: Product}) {
                     />
                 </div>
 
-                <div className="flex-1 p-2">
-                    <h2 className="line-clamp-2 h-12 md:text-lg md:h-14">
-                        {product.name}
-                    </h2>
-                </div>
-
-                <div className="flex-1 px-2 pb-2">
+                <div className="flex-1 pt-2 px-2">
                     <p className="line-clamp-1 text-sm text-gray-500 md:text-base">
                         {product.categories?.name}
                     </p>
+                </div>
+
+                <div className="flex-1 p-2">
+                    <h2 className="font-semibold line-clamp-2 h-12 md:text-lg md:h-14">
+                        {product.name}
+                    </h2>
                 </div>
 
                 <div className="flex-1 pt-2 px-2">
