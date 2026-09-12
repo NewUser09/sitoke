@@ -7,5 +7,5 @@ export default function Container ({
         <main className="mx-auto w-full max-w-5xl p-8 md:p-10">
             {children}
         </main>
-    )
+    );
 }
