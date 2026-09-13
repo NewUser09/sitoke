@@ -7,8 +7,12 @@ import CategoryDropdown from "../components/common/FilterDropdown";
 import FilterButton from "@/app/components/ui/FilterButton";
 
 
-export default async function HomePage() {
-  const products = await getProducts();
+export default async function HomePage({ searchParams }: { searchParams: { q?: string | null }}) {
+  const resolvedSearchParams = await searchParams;
+  const searchQuery = resolvedSearchParams.q;
+
+  const products = await getProducts(searchQuery);
+
   return (
     <Container>
       <h1 className="mb-6 text-xl font-bold md:text-2xl">

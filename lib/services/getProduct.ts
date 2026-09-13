@@ -18,8 +18,14 @@ export interface Product {
     updated_at: Date;
 }
 
-export const getProducts = async (): Promise<Product[]> => {
-    const { data, error } = await supabase.from("products").select("*, categories(*)");
+export const getProducts = async (search?: string | null): Promise<Product[]> => {
+    let query = supabase.from("products").select("*,  categories(*)");
+
+    if (search) {
+        query = query.ilike("name", `%${search}%`);
+    }
+
+    const { data, error } = await query;
 
     if (error) {
         throw error;
